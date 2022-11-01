@@ -1,0 +1,13 @@
+{
+  "name": "weather-info-cli",
+  "version": "1.0.0",
+  "description": "Node.js CLI to get Weather info",
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "license": "ISC",
+  "author": "Vladyslav Haiduk <the.vladhaiduk@gmail.com>",
+  "main": "weather.js",
+  "scripts": {}
+}
