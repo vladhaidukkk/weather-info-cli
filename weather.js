@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { parseArgs } from './helpers/args.js';
-import { logSuccess, logError, logHelp } from './services/log.service.js';
+import { logSuccess, logError, logHelp, logWeather } from './services/log.service.js';
 import { saveKeyValue, STORAGE_DICT } from './services/storage.service.js';
-import { getWeather } from './services/api.service.js';
+import { getWeather, getIconByCode } from './services/api.service.js';
 
 async function saveCity(city) {
   if (typeof city !== 'string') {
@@ -46,7 +46,8 @@ async function saveLang(lang) {
 async function getForecast() {
   try {
     const weather = await getWeather();
-    logSuccess(weather);
+    const icon = getIconByCode(weather.weather[0].icon);
+    logWeather(weather, icon);
   } catch (error) {
     const code = error?.response?.status;
 

@@ -25,4 +25,16 @@ function logHelp() {
   );
 }
 
-export { logSuccess, logError, logHelp };
+function logWeather(data, icon) {
+  console.log(
+    dedent`${chalk.bgBlue(' WEATHER ')} ${chalk.blue(`in ${data.name}`)}
+
+    State: ${icon}  ${chalk.bold(data.weather[0].description)}
+    Temperature: ${chalk.bold(`${data.main.temp}C (feels like ${data.main.feels_like}C)`)}
+    Humidity: ${chalk.bold(`${data.main.humidity}%`)}
+    Wind Speed: ${chalk.bold(data.wind.speed)}
+    `
+  );
+}
+
+export { logSuccess, logError, logHelp, logWeather };

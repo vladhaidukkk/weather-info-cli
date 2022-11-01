@@ -1,6 +1,31 @@
 import axios from 'axios';
 import { getKeyValue, STORAGE_DICT } from './storage.service.js';
 
+function getIconByCode(iconCode) {
+  const code = parseInt(iconCode.slice(0, -1));
+
+  switch (code) {
+    case 1:
+      return '☀️';
+    case 2:
+      return '⛅';
+    case 3:
+      return '☁️';
+    case 4:
+      return '☁️';
+    case 9:
+      return '🌧';
+    case 10:
+      return '🌦';
+    case 11:
+      return '🌩';
+    case 13:
+      return '❄️';
+    case 50:
+      return '🌫';
+  }
+}
+
 async function getWeather() {
   const city = process.env.WEATHER_CLI_CITY ?? (await getKeyValue(STORAGE_DICT.city));
   if (!city) {
@@ -26,4 +51,4 @@ async function getWeather() {
   return data;
 }
 
-export { getWeather };
+export { getWeather, getIconByCode };
