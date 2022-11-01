@@ -48,7 +48,18 @@ async function getForecast() {
     const weather = await getWeather();
     logSuccess(weather);
   } catch (error) {
-    logError(error.message);
+    const code = error?.response?.status;
+
+    switch (code) {
+      case 404:
+        logError('Invalid city');
+        break;
+      case 401:
+        logError('Invalid token');
+        break;
+      default:
+        logError(error.message);
+    }
   }
 }
 
