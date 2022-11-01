@@ -1,6 +1,6 @@
 {
   "name": "weather-info-cli",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Node.js CLI to get Weather info",
   "keywords": [
     "cli",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/vladhaidukkk/weather-info-cli"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "Vladyslav Haiduk <the.vladhaiduk@gmail.com>",
   "type": "module",
   "main": "weather.js",
