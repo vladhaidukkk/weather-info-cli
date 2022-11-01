@@ -2,6 +2,7 @@
 import { parseArgs } from './helpers/args.js';
 import { logSuccess, logError, logHelp } from './services/log.service.js';
 import { saveKeyValue, STORAGE_DICT } from './services/storage.service.js';
+import { getWeather } from './services/api.service.js';
 
 async function saveCity(city) {
   if (typeof city !== 'string') {
@@ -42,9 +43,22 @@ async function saveLang(lang) {
   }
 }
 
+async function getForecast() {
+  try {
+    const weather = await getWeather();
+    logSuccess(weather);
+  } catch (error) {
+    logError(error.message);
+  }
+}
+
 function initCLI() {
   const args = process.argv.slice(2);
   const opts = parseArgs(args);
+
+  if (Object.keys(opts).length === 0) {
+    return getForecast();
+  }
 
   if (opts.h) {
     return logHelp();
