@@ -6,8 +6,22 @@
     "cli",
     "weather"
   ],
+  "homepage": "https://github.com/vladhaidukkk/weather-info-cli",
+  "bugs": {
+    "email": "the.vladhaiduk@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladhaidukkk/weather-info-cli"
+  },
   "license": "ISC",
   "author": "Vladyslav Haiduk <the.vladhaiduk@gmail.com>",
+  "type": "module",
   "main": "weather.js",
-  "scripts": {}
+  "bin": {
+    "weather": "weather.js"
+  },
+  "scripts": {
+    "start": "node weather.js"
+  }
 }
