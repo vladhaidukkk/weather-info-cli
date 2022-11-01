@@ -23,5 +23,8 @@
   },
   "scripts": {
     "start": "node weather.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
   }
 }
